@@ -4,6 +4,7 @@ class Game {
     private _pacman: Pacman;
     private ghosts: Ghost[];
     private dots: Dot[];
+    private walls: Wall[];
     private gameLoop: number;
     private dotsEaten: number; // Counter for dots eaten
     
@@ -12,9 +13,19 @@ class Game {
         this.context = this.canvas.getContext('2d')!;
         this._pacman = new Pacman(this.canvas.width / 2, this.canvas.height / 2);
         this.ghosts = [new Ghost(50, 50), new Ghost(100, 100)]; // Example positions
+        this.walls = this.createWalls();
         this.dots = this.createDots();
         this.gameLoop = 0;
         this.dotsEaten = 0; // Initialize counter
+    }
+
+    private createWalls(): Wall[] {
+        // Define walls' positions and dimensions
+        return [
+            new Wall(100, 100, 200, 20),
+            new Wall(300, 200, 20, 200),
+            // Add more walls as needed
+        ];
     }
 
     private createDots(): Dot[] {
@@ -22,7 +33,10 @@ class Game {
         let dots: Dot[] = [];
         for (let i = 0; i < this.canvas.width; i += 20) {
             for (let j = 0; j < this.canvas.height; j += 20) {
-                dots.push(new Dot(i, j));
+                const dot = new Dot(i, j);
+                if (!this.walls.some(wall => wall.collidesWith(dot))) {
+                    dots.push(dot);
+                }
             }
         }
         return dots;
@@ -36,8 +50,8 @@ class Game {
     }
 
     private update() {
-        this._pacman.update();
-        this.ghosts.forEach(ghost => ghost.update());
+        this._pacman.update(this.walls);
+        this.ghosts.forEach(ghost => ghost.update(this.walls));
 
         // Check for collisions between Pacman and dots
         this.dots = this.dots.filter(dot => {
@@ -56,6 +70,7 @@ class Game {
         this._pacman.draw(this.context);
         this.ghosts.forEach(ghost => ghost.draw(this.context));
         this.dots.forEach(dot => dot.draw(this.context));
+        this.walls.forEach(wall => wall.draw(this.context));
         
         // Draw the dots eaten counter
         this.context.fillStyle = 'white';
@@ -83,22 +98,29 @@ class Pacman {
         this.direction = 'right';
     }
 
-    public update() {
+    public update(walls: Wall[]) {
+        let nextX = this.x;
+        let nextY = this.y;
+
         switch (this.direction) {
             case 'right':
-                this.x += this.speed;
+                nextX += this.speed;
                 break;
             case 'left':
-                this.x -= this.speed;
+                nextX -= this.speed;
                 break;
             case 'up':
-                this.y -= this.speed;
+                nextY -= this.speed;
                 break;
             case 'down':
-                this.y += this.speed;
+                nextY += this.speed;
                 break;
         }
-        // Add boundary checks and collision detection here
+
+        if (!walls.some(wall => wall.collidesWithCircle(nextX, nextY, this.radius))) {
+            this.x = nextX;
+            this.y = nextY;
+        }
     }
 
     public draw(context: CanvasRenderingContext2D) {
@@ -131,8 +153,9 @@ class Ghost {
         this.radius = 10;
     }
 
-    public update() {
+    public update(walls: Wall[]) {
         // Add ghost movement logic here
+        // Ensure ghosts do not cross walls
     }
 
     public draw(context: CanvasRenderingContext2D) {
@@ -161,6 +184,43 @@ class Dot {
         context.fillStyle = 'white';
         context.fill();
         context.closePath();
+    }
+}
+
+class Wall {
+    private x: number;
+    private y: number;
+    private width: number;
+    private height: number;
+
+    constructor(x: number, y: number, width: number, height: number) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    public draw(context: CanvasRenderingContext2D) {
+        context.fillStyle = 'blue';
+        context.fillRect(this.x, this.y, this.width, this.height);
+    }
+
+    public collidesWith(dot: Dot): boolean {
+        return (
+            dot.x > this.x &&
+            dot.x < this.x + this.width &&
+            dot.y > this.y &&
+            dot.y < this.y + this.height
+        );
+    }
+
+    public collidesWithCircle(cx: number, cy: number, radius: number): boolean {
+        const closestX = Math.max(this.x, Math.min(cx, this.x + this.width));
+        const closestY = Math.max(this.y, Math.min(cy, this.y + this.height));
+        const distanceX = cx - closestX;
+        const distanceY = cy - closestY;
+
+        return (distanceX ** 2 + distanceY ** 2) < (radius ** 2);
     }
 }
 

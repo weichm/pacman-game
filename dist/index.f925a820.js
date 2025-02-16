@@ -8,14 +8,31 @@ var Game = /** @class */ function() {
             new Ghost(50, 50),
             new Ghost(100, 100)
         ]; // Example positions
+        this.walls = this.createWalls();
         this.dots = this.createDots();
         this.gameLoop = 0;
         this.dotsEaten = 0; // Initialize counter
     }
+    Game.prototype.createWalls = function() {
+        // Define walls' positions and dimensions
+        return [
+            new Wall(100, 100, 200, 20),
+            new Wall(300, 200, 20, 200)
+        ];
+    };
     Game.prototype.createDots = function() {
         // Create dots for the game board
         var dots = [];
-        for(var i = 0; i < this.canvas.width; i += 20)for(var j = 0; j < this.canvas.height; j += 20)dots.push(new Dot(i, j));
+        for(var i = 0; i < this.canvas.width; i += 20){
+            var _loop_1 = function(j) {
+                var dot = new Dot(i, j);
+                if (!this_1.walls.some(function(wall) {
+                    return wall.collidesWith(dot);
+                })) dots.push(dot);
+            };
+            var this_1 = this;
+            for(var j = 0; j < this.canvas.height; j += 20)_loop_1(j);
+        }
         return dots;
     };
     Game.prototype.start = function() {
@@ -27,9 +44,9 @@ var Game = /** @class */ function() {
     };
     Game.prototype.update = function() {
         var _this = this;
-        this._pacman.update();
+        this._pacman.update(this.walls);
         this.ghosts.forEach(function(ghost) {
-            return ghost.update();
+            return ghost.update(_this.walls);
         });
         // Check for collisions between Pacman and dots
         this.dots = this.dots.filter(function(dot) {
@@ -50,6 +67,9 @@ var Game = /** @class */ function() {
         });
         this.dots.forEach(function(dot) {
             return dot.draw(_this.context);
+        });
+        this.walls.forEach(function(wall) {
+            return wall.draw(_this.context);
         });
         // Draw the dots eaten counter
         this.context.fillStyle = 'white';
@@ -73,22 +93,30 @@ var Pacman = /** @class */ function() {
         this.speed = 2;
         this.direction = 'right';
     }
-    Pacman.prototype.update = function() {
+    Pacman.prototype.update = function(walls) {
+        var _this = this;
+        var nextX = this.x;
+        var nextY = this.y;
         switch(this.direction){
             case 'right':
-                this.x += this.speed;
+                nextX += this.speed;
                 break;
             case 'left':
-                this.x -= this.speed;
+                nextX -= this.speed;
                 break;
             case 'up':
-                this.y -= this.speed;
+                nextY -= this.speed;
                 break;
             case 'down':
-                this.y += this.speed;
+                nextY += this.speed;
                 break;
         }
-    // Add boundary checks and collision detection here
+        if (!walls.some(function(wall) {
+            return wall.collidesWithCircle(nextX, nextY, _this.radius);
+        })) {
+            this.x = nextX;
+            this.y = nextY;
+        }
     };
     Pacman.prototype.draw = function(context) {
         context.beginPath();
@@ -113,8 +141,9 @@ var Ghost = /** @class */ function() {
         this.y = y;
         this.radius = 10;
     }
-    Ghost.prototype.update = function() {
+    Ghost.prototype.update = function(walls) {
     // Add ghost movement logic here
+    // Ensure ghosts do not cross walls
     };
     Ghost.prototype.draw = function(context) {
         context.beginPath();
@@ -139,6 +168,29 @@ var Dot = /** @class */ function() {
         context.closePath();
     };
     return Dot;
+}();
+var Wall = /** @class */ function() {
+    function Wall(x, y, width, height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+    Wall.prototype.draw = function(context) {
+        context.fillStyle = 'blue';
+        context.fillRect(this.x, this.y, this.width, this.height);
+    };
+    Wall.prototype.collidesWith = function(dot) {
+        return dot.x > this.x && dot.x < this.x + this.width && dot.y > this.y && dot.y < this.y + this.height;
+    };
+    Wall.prototype.collidesWithCircle = function(cx, cy, radius) {
+        var closestX = Math.max(this.x, Math.min(cx, this.x + this.width));
+        var closestY = Math.max(this.y, Math.min(cy, this.y + this.height));
+        var distanceX = cx - closestX;
+        var distanceY = cy - closestY;
+        return Math.pow(distanceX, 2) + Math.pow(distanceY, 2) < Math.pow(radius, 2);
+    };
+    return Wall;
 }();
 window.onload = function() {
     var game = new Game('gameCanvas');
