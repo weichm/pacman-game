@@ -140,10 +140,48 @@ var Ghost = /** @class */ function() {
         this.x = x;
         this.y = y;
         this.radius = 10;
+        this.speed = 2;
+        this.direction = this.getRandomDirection();
+        this.changeDirectionInterval = 0;
     }
+    Ghost.prototype.getRandomDirection = function() {
+        var directions = [
+            'right',
+            'left',
+            'up',
+            'down'
+        ];
+        return directions[Math.floor(Math.random() * directions.length)];
+    };
     Ghost.prototype.update = function(walls) {
-    // Add ghost movement logic here
-    // Ensure ghosts do not cross walls
+        var _this = this;
+        var nextX = this.x;
+        var nextY = this.y;
+        switch(this.direction){
+            case 'right':
+                nextX += this.speed;
+                break;
+            case 'left':
+                nextX -= this.speed;
+                break;
+            case 'up':
+                nextY -= this.speed;
+                break;
+            case 'down':
+                nextY += this.speed;
+                break;
+        }
+        if (!walls.some(function(wall) {
+            return wall.collidesWithCircle(nextX, nextY, _this.radius);
+        })) {
+            this.x = nextX;
+            this.y = nextY;
+        } else this.direction = this.getRandomDirection(); // Change direction if hitting a wall
+        this.changeDirectionInterval++;
+        if (this.changeDirectionInterval > 60) {
+            this.direction = this.getRandomDirection();
+            this.changeDirectionInterval = 0;
+        }
     };
     Ghost.prototype.draw = function(context) {
         context.beginPath();

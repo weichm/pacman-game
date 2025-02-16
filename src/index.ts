@@ -146,16 +146,55 @@ class Ghost {
     private x: number;
     private y: number;
     private radius: number;
+    private speed: number;
+    private direction: string;
+    private changeDirectionInterval: number;
 
     constructor(x: number, y: number) {
         this.x = x;
         this.y = y;
         this.radius = 10;
+        this.speed = 2;
+        this.direction = this.getRandomDirection();
+        this.changeDirectionInterval = 0;
+    }
+
+    private getRandomDirection(): string {
+        const directions = ['right', 'left', 'up', 'down'];
+        return directions[Math.floor(Math.random() * directions.length)];
     }
 
     public update(walls: Wall[]) {
-        // Add ghost movement logic here
-        // Ensure ghosts do not cross walls
+        let nextX = this.x;
+        let nextY = this.y;
+
+        switch (this.direction) {
+            case 'right':
+                nextX += this.speed;
+                break;
+            case 'left':
+                nextX -= this.speed;
+                break;
+            case 'up':
+                nextY -= this.speed;
+                break;
+            case 'down':
+                nextY += this.speed;
+                break;
+        }
+
+        if (!walls.some(wall => wall.collidesWithCircle(nextX, nextY, this.radius))) {
+            this.x = nextX;
+            this.y = nextY;
+        } else {
+            this.direction = this.getRandomDirection(); // Change direction if hitting a wall
+        }
+
+        this.changeDirectionInterval++;
+        if (this.changeDirectionInterval > 60) { // Change direction every 1 second (assuming 60 FPS)
+            this.direction = this.getRandomDirection();
+            this.changeDirectionInterval = 0;
+        }
     }
 
     public draw(context: CanvasRenderingContext2D) {
