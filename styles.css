@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212; /* Dark background color */
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+canvas {
+    border: 1px solid #ffffff;
+    background-color: #000000; /* Black background for the canvas */
+}
