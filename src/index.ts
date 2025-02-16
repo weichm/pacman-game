@@ -5,17 +5,15 @@ class Game {
     private ghosts: Ghost[];
     private dots: Dot[];
     private walls: Wall[];
-    private gameLoop: number;
     private dotsEaten: number; // Counter for dots eaten
     
     constructor(canvasId: string) {
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
         this.context = this.canvas.getContext('2d')!;
         this._pacman = new Pacman(this.canvas.width / 2, this.canvas.height / 2);
-        this.ghosts = [new Ghost(50, 400), new Ghost(50, 200)]; // Example positions
+        this.ghosts = [new Ghost(50, 450), new Ghost(50, 100)]; // Example positions
         this.walls = this.createWalls();
         this.dots = this.createDots();
-        this.gameLoop = 0;
         this.dotsEaten = 0; // Initialize counter
     }
 
@@ -27,7 +25,7 @@ class Game {
             new Wall(0, this.canvas.height - borderThickness, this.canvas.width, borderThickness), // Bottom border
             new Wall(0, 0, borderThickness, this.canvas.height), // Left border
             new Wall(this.canvas.width - borderThickness, 0, borderThickness, this.canvas.height), // Right border
-            new Wall(100, 100, 200, 20),
+            new Wall(100, 100, 300, 20),
             new Wall(300, 200, 20, 200),
             // Add more walls as needed
         ];
@@ -48,7 +46,7 @@ class Game {
     }
 
     public start() {
-        this.gameLoop = setInterval(() => {
+        setInterval(() => {
             this.update();
             this.draw();
         }, 1000 / 60);

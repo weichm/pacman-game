@@ -3,15 +3,14 @@
   "version": "1.0.0",
   "description": "Pacman game implemented in TypeScript for the browser.",
   "scripts": {
-    "build": "parcel build public/index.html",
-    "start": "parcel serve public/index.html --open",
-    "watch": "parcel watch public/index.html"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.0.0",
-    "typescript": "^4.0.0"
-  },
-  "dependencies": {}
+    "gh-pages": "^6.3.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  }
 }
