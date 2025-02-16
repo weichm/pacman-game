@@ -5,6 +5,7 @@ class Game {
     private ghosts: Ghost[];
     private dots: Dot[];
     private gameLoop: number;
+    private dotsEaten: number; // Counter for dots eaten
     
     constructor(canvasId: string) {
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
@@ -13,6 +14,7 @@ class Game {
         this.ghosts = [new Ghost(50, 50), new Ghost(100, 100)]; // Example positions
         this.dots = this.createDots();
         this.gameLoop = 0;
+        this.dotsEaten = 0; // Initialize counter
     }
 
     private createDots(): Dot[] {
@@ -38,7 +40,13 @@ class Game {
         this.ghosts.forEach(ghost => ghost.update());
 
         // Check for collisions between Pacman and dots
-        this.dots = this.dots.filter(dot => !this._pacman.collidesWith(dot));
+        this.dots = this.dots.filter(dot => {
+            if (this._pacman.collidesWith(dot)) {
+                this.dotsEaten++; // Increment counter
+                return false;
+            }
+            return true;
+        });
 
         // Handle other game logic here
     }
@@ -48,6 +56,11 @@ class Game {
         this._pacman.draw(this.context);
         this.ghosts.forEach(ghost => ghost.draw(this.context));
         this.dots.forEach(dot => dot.draw(this.context));
+        
+        // Draw the dots eaten counter
+        this.context.fillStyle = 'white';
+        this.context.font = '20px Arial';
+        this.context.fillText(`Dots Eaten: ${this.dotsEaten}`, this.canvas.width - 150, 30);
     }
 
     public get pacman(): Pacman {
@@ -102,7 +115,7 @@ class Pacman {
     }
 
     public collidesWith(dot: Dot): boolean {
-        const distance = Math.sqrt((this.x - dot.x)**2 + (this.y - dot.y)**2)
+        const distance = Math.sqrt((this.x - dot.x) ** 2 + (this.y - dot.y) ** 2);
         return distance < this.radius + dot.radius;
     }
 }
@@ -130,7 +143,7 @@ class Ghost {
         context.closePath();
     }
 }
-//
+
 class Dot {
     public x: number;
     public y: number;

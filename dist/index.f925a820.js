@@ -10,6 +10,7 @@ var Game = /** @class */ function() {
         ]; // Example positions
         this.dots = this.createDots();
         this.gameLoop = 0;
+        this.dotsEaten = 0; // Initialize counter
     }
     Game.prototype.createDots = function() {
         // Create dots for the game board
@@ -32,7 +33,11 @@ var Game = /** @class */ function() {
         });
         // Check for collisions between Pacman and dots
         this.dots = this.dots.filter(function(dot) {
-            return !_this._pacman.collidesWith(dot);
+            if (_this._pacman.collidesWith(dot)) {
+                _this.dotsEaten++; // Increment counter
+                return false;
+            }
+            return true;
         });
     // Handle other game logic here
     };
@@ -46,6 +51,10 @@ var Game = /** @class */ function() {
         this.dots.forEach(function(dot) {
             return dot.draw(_this.context);
         });
+        // Draw the dots eaten counter
+        this.context.fillStyle = 'white';
+        this.context.font = '20px Arial';
+        this.context.fillText("Dots Eaten: ".concat(this.dotsEaten), this.canvas.width - 150, 30);
     };
     Object.defineProperty(Game.prototype, "pacman", {
         get: function() {
@@ -116,7 +125,6 @@ var Ghost = /** @class */ function() {
     };
     return Ghost;
 }();
-//
 var Dot = /** @class */ function() {
     function Dot(x, y) {
         this.x = x;
