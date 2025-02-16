@@ -21,7 +21,12 @@ class Game {
 
     private createWalls(): Wall[] {
         // Define walls' positions and dimensions
+        const borderThickness = 20;
         return [
+            new Wall(0, 0, this.canvas.width, borderThickness), // Top border
+            new Wall(0, this.canvas.height - borderThickness, this.canvas.width, borderThickness), // Bottom border
+            new Wall(0, 0, borderThickness, this.canvas.height), // Left border
+            new Wall(this.canvas.width - borderThickness, 0, borderThickness, this.canvas.height), // Right border
             new Wall(100, 100, 200, 20),
             new Wall(300, 200, 20, 200),
             // Add more walls as needed

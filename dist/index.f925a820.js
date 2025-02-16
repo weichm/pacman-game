@@ -15,7 +15,12 @@ var Game = /** @class */ function() {
     }
     Game.prototype.createWalls = function() {
         // Define walls' positions and dimensions
+        var borderThickness = 20;
         return [
+            new Wall(0, 0, this.canvas.width, borderThickness),
+            new Wall(0, this.canvas.height - borderThickness, this.canvas.width, borderThickness),
+            new Wall(0, 0, borderThickness, this.canvas.height),
+            new Wall(this.canvas.width - borderThickness, 0, borderThickness, this.canvas.height),
             new Wall(100, 100, 200, 20),
             new Wall(300, 200, 20, 200)
         ];
