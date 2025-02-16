@@ -12,7 +12,7 @@ class Game {
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
         this.context = this.canvas.getContext('2d')!;
         this._pacman = new Pacman(this.canvas.width / 2, this.canvas.height / 2);
-        this.ghosts = [new Ghost(50, 50), new Ghost(100, 100)]; // Example positions
+        this.ghosts = [new Ghost(50, 400), new Ghost(50, 200)]; // Example positions
         this.walls = this.createWalls();
         this.dots = this.createDots();
         this.gameLoop = 0;

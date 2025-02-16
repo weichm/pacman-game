@@ -2,10 +2,10 @@
   "name": "pacman-game",
   "version": "1.0.0",
   "description": "Pacman game implemented in TypeScript for the browser.",
-  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "npm run build && parcel public/index.html"
+    "build": "parcel build public/index.html",
+    "start": "parcel serve public/index.html --open",
+    "watch": "parcel watch public/index.html"
   },
   "author": "",
   "license": "ISC",

@@ -1,10 +1,13 @@
-4307
-62/home/info/99_deleteme/pacman-game/dist/public.0ba7c674.js.map1739720112559732869 0
-58/home/info/99_deleteme/pacman-game/dist/public.0ba7c674.js1739720112551733130 0
-57/home/info/99_deleteme/pacman-game/dist/index.f925a820.js1739722050557524221 0
-58/home/info/99_deleteme/pacman-game/dist/index.c180ac0f.css1739720112539733521 0
-47/home/info/99_deleteme/pacman-game/src/index.ts1739722027646265583 0
+4312
+61/home/info/99_deleteme/pacman-game/dist/index.da2e5042.js.map1739724064449675739 0
+62/home/info/99_deleteme/pacman-game/dist/public.0ba7c674.js.map1739724957561548243 0
+57/home/info/99_deleteme/pacman-game/dist/index.da2e5042.js1739724064441675993 0
+58/home/info/99_deleteme/pacman-game/dist/public.0ba7c674.js1739724957557548369 0
+57/home/info/99_deleteme/pacman-game/dist/index.f925a820.js1739724957557548369 0
+58/home/info/99_deleteme/pacman-game/dist/index.c180ac0f.css1739724957553548496 0
+47/home/info/99_deleteme/pacman-game/src/index.ts1739724554290242687 0
 38/home/info/99_deleteme/pacman-game/src1739718743704505350 1
+45/home/info/99_deleteme/pacman-game/.gitignore1739722745739743937 0
 65/home/info/99_deleteme/pacman-game/node_modules/has-flag/index.js1739718826765764527 0
 67/home/info/99_deleteme/pacman-game/node_modules/has-flag/index.d.ts1739718826757764792 0
 73/home/info/99_deleteme/pacman-game/node_modules/msgpackr-extract/index.js1739718827869728142 0
@@ -569,7 +572,7 @@
 87/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/png-alpha.js1739718829473675277 0
 83/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/dist/unpacker/index.js1739718829169685296 0
 91/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/iframe-srcdoc.js1739718829157685692 0
-61/home/info/99_deleteme/pacman-game/dist/index.f925a820.js.map1739722050565523962 0
+61/home/info/99_deleteme/pacman-game/dist/index.f925a820.js.map1739724957561548243 0
 93/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/css-crisp-edges.js1739718828869695184 0
 82/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/json.js1739718829257682395 0
 84/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/webgl2.js1739718829565672245 0
@@ -606,6 +609,7 @@
 89/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/textencoder.js1739718829533673300 0
 97/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/input-email-tel-url.js1739718829181684901 0
 84/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/tls1-1.js1739718829537673168 0
+58/home/info/99_deleteme/pacman-game/dist/index.668081b4.css1739724064441675993 0
 98/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/subresource-bundling.js1739718829521673695 0
 61/home/info/99_deleteme/pacman-game/node_modules/lmdb/index.js1739718828953692413 0
 100/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/declarative-shadow-dom.js1739718829041689512 0
@@ -777,7 +781,7 @@
 79/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/regions/GQ.js1739718829137686351 0
 79/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/regions/GR.js1739718829141686219 0
 83/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/regions/alt-an.js1739718828345712453 0
-48/home/info/99_deleteme/pacman-game/dist/index.js1739722049237566935 0
+48/home/info/99_deleteme/pacman-game/dist/index.js1739723234420252318 0
 79/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/regions/GU.js1739718829141686219 0
 94/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/beforeafterprint.js1739718828681701379 0
 79/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/regions/IL.js1739718829157685692 0
@@ -1260,7 +1264,7 @@
 98/home/info/99_deleteme/pacman-game/node_modules/@parcel/utils/test/input/sourcemap/no-sourcemap.js1739718828781698084 0
 79/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/regions/IN.js1739718829165685428 0
 86/home/info/99_deleteme/pacman-game/node_modules/@parcel/runtime-service-worker/LICENSE1739718827681734338 0
-50/home/info/99_deleteme/pacman-game/dist/index.html1739720112539733521 0
+50/home/info/99_deleteme/pacman-game/dist/index.html1739724957553548496 0
 83/home/info/99_deleteme/pacman-game/node_modules/@parcel/runtime-js/lib/JSRuntime.js1739718828493707576 0
 93/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/abortcontroller.js1739718827833729326 0
 79/home/info/99_deleteme/pacman-game/node_modules/@parcel/utils/test/input/config1739718829021690171 1
@@ -2097,7 +2101,7 @@
 92/home/info/99_deleteme/pacman-game/node_modules/@parcel/transformer-postcss/lib/constants.js1739718827745732229 0
 72/home/info/99_deleteme/pacman-game/node_modules/@parcel/packager-css/lib1739718827777731174 1
 86/home/info/99_deleteme/pacman-game/node_modules/@parcel/transformer-image/package.json1739718827981724450 0
-34/home/info/99_deleteme/pacman-game1739719136411591511 1
+34/home/info/99_deleteme/pacman-game1739722161985918226 1
 81/home/info/99_deleteme/pacman-game/node_modules/weak-lru-cache/tests/benchmark.js1739718827709733415 0
 68/home/info/99_deleteme/pacman-game/node_modules/@swc/core/spack.d.ts1739718828077721286 0
 104/home/info/99_deleteme/pacman-game/node_modules/@swc/helpers/esm/_create_for_of_iterator_helper_loose.js1739718828753699004 0
@@ -2184,6 +2188,7 @@
 99/home/info/99_deleteme/pacman-game/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/mdb_copy.11739718828521706653 0
 73/home/info/99_deleteme/pacman-game/node_modules/@parcel/packager-wasm/lib1739718827873728009 1
 72/home/info/99_deleteme/pacman-game/node_modules/@swc/helpers/_/_identity1739718829081688196 1
+62/home/info/99_deleteme/pacman-game/dist/index.668081b4.css.map1739724064449675739 0
 82/home/info/99_deleteme/pacman-game/node_modules/cosmiconfig/dist/cacheWrapper.d.ts1739718828525706520 0
 96/home/info/99_deleteme/pacman-game/node_modules/@parcel/runtime-js/lib/helpers/get-worker-url.js1739718828269714958 0
 97/home/info/99_deleteme/pacman-game/node_modules/@parcel/source-map/parcel_sourcemap_node/build.rs1739718829445676200 0
@@ -2528,7 +2533,7 @@
 86/home/info/99_deleteme/pacman-game/node_modules/@parcel/package-manager/lib/index.d.ts1739718828713700325 0
 71/home/info/99_deleteme/pacman-game/node_modules/to-regex-range/index.js1739718826761764660 0
 73/home/info/99_deleteme/pacman-game/node_modules/import-fresh/package.json1739718827645735524 0
-48/home/info/99_deleteme/pacman-game/tsconfig.json1739718792722887102 0
+48/home/info/99_deleteme/pacman-game/tsconfig.json1739722686989589270 0
 67/home/info/99_deleteme/pacman-game/node_modules/lmdb/dist/index.cjs1739718828857695579 0
 83/home/info/99_deleteme/pacman-game/node_modules/@parcel/runtime-js/lib/helpers/node1739718828549705728 1
 87/home/info/99_deleteme/pacman-game/node_modules/@parcel/packager-raw/src/RawPackager.js1739718827837729197 0
@@ -2603,7 +2608,7 @@
 111/home/info/99_deleteme/pacman-game/node_modules/@parcel/core/test/fixtures/local-plugin-config-pkg/node_modules1739718828841696104 1
 100/home/info/99_deleteme/pacman-game/node_modules/@parcel/rust/parcel-node-bindings.linux-x64-gnu.node1739718835649471745 0
 62/home/info/99_deleteme/pacman-game/node_modules/@parcel/fs/lib1739718828585704543 1
-62/home/info/99_deleteme/pacman-game/dist/index.c180ac0f.css.map1739720112543733391 0
+62/home/info/99_deleteme/pacman-game/dist/index.c180ac0f.css.map1739724957561548243 0
 95/home/info/99_deleteme/pacman-game/node_modules/@swc/helpers/esm/_class_apply_descriptor_get.js1739718828713700325 0
 93/home/info/99_deleteme/pacman-game/node_modules/@parcel/source-map/dist/wasm-bindings.js.flow1739718828245715750 0
 68/home/info/99_deleteme/pacman-game/node_modules/weak-lru-cache/tests1739718827833729326 1
@@ -3155,7 +3160,7 @@
 88/home/info/99_deleteme/pacman-game/node_modules/utility-types/dist/functional-helpers.js1739718827645735524 0
 87/home/info/99_deleteme/pacman-game/node_modules/utility-types/dist/utility-types.js.map1739718827865728274 0
 70/home/info/99_deleteme/pacman-game/node_modules/domutils/lib/legacy.js1739718828009723527 0
-39/home/info/99_deleteme/pacman-game/dist1739722050565523962 1
+39/home/info/99_deleteme/pacman-game/dist1739724957565548116 1
 83/home/info/99_deleteme/pacman-game/node_modules/utility-types/dist/utility-types.js1739718827733732624 0
 81/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/aac.js1739718827793730647 0
 72/home/info/99_deleteme/pacman-game/node_modules/timsort/build/timsort.js1739718828017723264 0
@@ -3349,7 +3354,7 @@
 97/home/info/99_deleteme/pacman-game/node_modules/htmlnano/lib/modules/normalizeAttributeValues.mjs1739718828821696763 0
 83/home/info/99_deleteme/pacman-game/node_modules/typescript/lib/lib.es2022.full.d.ts1739718830233650229 0
 84/home/info/99_deleteme/pacman-game/node_modules/htmlnano/lib/modules/mergeStyles.mjs1739718828809697161 0
-52/home/info/99_deleteme/pacman-game/public/index.html1739720112283741857 0
+52/home/info/99_deleteme/pacman-game/public/index.html1739724535018844624 0
 90/home/info/99_deleteme/pacman-game/node_modules/caniuse-lite/data/features/css-counters.js1739718828869695184 0
 66/home/info/99_deleteme/pacman-game/node_modules/.package-lock.json1739718837693404392 0
 88/home/info/99_deleteme/pacman-game/node_modules/htmlnano/lib/modules/removeUnusedCss.mjs1739718828833696370 0
@@ -3951,7 +3956,7 @@
 66/home/info/99_deleteme/pacman-game/node_modules/error-ex/README.md1739718826769764398 0
 111/home/info/99_deleteme/pacman-game/node_modules/@parcel/core/test/fixtures/invalid-source-not-file/src/index.js1739718828805697293 0
 69/home/info/99_deleteme/pacman-game/node_modules/error-ex/package.json1739718826757764792 0
-47/home/info/99_deleteme/pacman-game/package.json1739719136411591511 0
+47/home/info/99_deleteme/pacman-game/package.json1739724952465709547 0
 78/home/info/99_deleteme/pacman-game/node_modules/typescript/lib/typescript.d.ts1739718830265649175 0
 65/home/info/99_deleteme/pacman-game/node_modules/error-ex/index.js1739718826761764660 0
 100/home/info/99_deleteme/pacman-game/node_modules/@swc/helpers/_/_tagged_template_literal/package.json1739718829157685692 0
